@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'DetailedScreen.dart';
 import 'HomeScreen.dart';
-
+import 'Game.dart';
 void main() => runApp(new MyApp());
 
 class MyApp extends StatefulWidget {
@@ -70,14 +70,17 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    final bgColor = const Color(0xFF324d87);
     return new MaterialApp(
       home: new Scaffold(
         appBar: new AppBar(
           title: new Text('Rock, Paper, Scissors, Lizard, Spock!'),
         ),
-        body: new Builder(
+        body: new Game(),/*new Builder(
           builder: (BuildContext context) {
-            return new Center(
+            return new Container(
+                decoration: new BoxDecoration(color: bgColor),
+                child: Center(
               child: new Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -91,9 +94,15 @@ class _MyAppState extends State<MyApp> {
                     color: Colors.lightBlueAccent,
                   ),*/
 
-                  SizedBox(height: 80.0,),
-                  FlutterLogo(size:100.0),
-                  SizedBox(height: 80.0,),
+                  SizedBox(height: 10.0,),
+                  //FlutterLogo(size:100.0),
+                  Image.asset(
+                    'assets/images/rockpaper.jpg',
+                    //width: 600.0,
+                    //height: 240.0,
+                    fit: BoxFit.cover,
+                  ),
+                  SizedBox(height: 20.0,),
                   RaisedButton(
                     child: Text('Sign in with Facebook'),
                     onPressed: () => _signIn(context)
@@ -113,16 +122,17 @@ class _MyAppState extends State<MyApp> {
                     color: Colors.lightBlueAccent,
                   ),*/
                   FlatButton(
-                      child: Text('¿No tiene cuenta? Regístrate'),
+                      child: Text('¿No tiene cuenta? Regístrate', style: TextStyle(color: Colors.white),),
                     onPressed: () => _signOut(context),
 
                   )
                 ],
 
               ),
+                ),
             );
           },
-        ),
+        ),*/
       ),
     );
   }

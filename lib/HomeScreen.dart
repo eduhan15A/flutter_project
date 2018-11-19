@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'main.dart';
 import 'package:flutter/foundation.dart';
-import 'Simon.dart';
+import 'Game.dart';
 class HomeScreen extends StatefulWidget {
   //final String userName;
   final UserInfoDetails detailsUser;
@@ -19,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(title: Text("App Home Screen"),),
       //body: Center(child: Text("Home Screen"),),
-      body: new Simon(),
+      body: new Game(),
       drawer: Drawer(
         child: ListView(children: <Widget>[
           UserAccountsDrawerHeader(
