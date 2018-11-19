@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'main.dart';
 import 'package:flutter/foundation.dart';
 import 'Game.dart';
+import 'package:flutter_project/HighScores.dart';
 class HomeScreen extends StatefulWidget {
   //final String userName;
   final UserInfoDetails detailsUser;
@@ -19,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(title: Text("App Home Screen"),),
       //body: Center(child: Text("Home Screen"),),
-      body: new Game(),
+      body: new Game(detailsUser: widget.detailsUser),
       drawer: Drawer(
         child: ListView(children: <Widget>[
           UserAccountsDrawerHeader(
@@ -40,6 +41,21 @@ class _HomeScreenState extends State<HomeScreen> {
               applicationVersion: "v1.0.0",
               applicationIcon: Icon(Icons.adb),
               icon: Icon(Icons.info)
+          ),
+          Divider(),
+          ListTile(
+            leading: new Icon(Icons.grade),
+            title: new Text("High Scores"),
+            onTap: () {
+              Navigator.push(
+                context,
+                new MaterialPageRoute(
+                  //builder: (context) => new DetailedScreen(detailsUser: userInfoDetails),
+                  builder: (context) => new HighScores(),
+
+                ),
+              );
+            },
           ),
           Divider(),
           ListTile(

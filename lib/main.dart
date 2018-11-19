@@ -6,6 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'DetailedScreen.dart';
 import 'HomeScreen.dart';
 import 'Game.dart';
+import 'HighScores.dart';
 void main() => runApp(new MyApp());
 
 class MyApp extends StatefulWidget {
@@ -60,6 +61,7 @@ class _MyAppState extends State<MyApp> {
     return user;
   }
 
+
   Future<Null> _signOut(BuildContext context) async {
     await facebookSignIn.logOut();
     Scaffold.of(context).showSnackBar(new SnackBar(
@@ -76,7 +78,8 @@ class _MyAppState extends State<MyApp> {
         appBar: new AppBar(
           title: new Text('Rock, Paper, Scissors, Lizard, Spock!'),
         ),
-        body: new Game(),/*new Builder(
+        body: //new Game(),
+        new Builder(
           builder: (BuildContext context) {
             return new Container(
                 decoration: new BoxDecoration(color: bgColor),
@@ -103,7 +106,7 @@ class _MyAppState extends State<MyApp> {
                     fit: BoxFit.cover,
                   ),
                   SizedBox(height: 20.0,),
-                  RaisedButton(
+                 new RaisedButton(
                     child: Text('Sign in with Facebook'),
                     onPressed: () => _signIn(context)
                         .then((FirebaseUser user) => print(user))
@@ -115,6 +118,7 @@ class _MyAppState extends State<MyApp> {
                   new Padding(
                     padding: const EdgeInsets.all(5.0),
                   ),
+
                  /* new MaterialButton(
                     minWidth: 150.0,
                     onPressed: () => _signOut(context),
@@ -132,7 +136,7 @@ class _MyAppState extends State<MyApp> {
                 ),
             );
           },
-        ),*/
+        ),
       ),
     );
   }

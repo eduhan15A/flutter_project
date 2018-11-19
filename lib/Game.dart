@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'HomeScreen.dart';
+import 'main.dart';
 
 class Game extends StatefulWidget {
+  final UserInfoDetails detailsUser;
+
+  Game({Key key, this.detailsUser}) : super(key: key);
+
   @override
   _GameState createState() => _GameState();
 }
@@ -16,6 +23,7 @@ class _GameState extends State<Game> {
 
   int myPoints = 0;
   int oponentPoints = 0;
+  int difference = 0;
 
   String rockImage = "assets/images/rock.png";
   String paperImage = "assets/images/paper.png";
@@ -246,7 +254,41 @@ class _GameState extends State<Game> {
   void savePointsInCloud() {
     print("Saving Points in Cloud");
 
-  }
+    difference = myPoints - oponentPoints;
+      print(this.widget.detailsUser.email);
+      print(this.widget.detailsUser.uid);
+
+      print("Saving Points");
+      Firestore.instance.collection('scores').where('userid', isEqualTo: this.widget.detailsUser.uid).getDocuments().then((result){
+        print("Documents: " + result.documents.length.toString());
+        if(result.documents.length > 0 ){
+          print(result.documents.first["score"]);
+
+          Firestore.instance.runTransaction((Transaction transaction)
+          async{
+            DocumentSnapshot snap = await transaction.get(result.documents.first.reference);
+            await transaction.update(snap.reference, { "score": difference , "oponentpoints": oponentPoints, "userpoints": myPoints, });
+          });
+        }
+        else{
+
+
+
+
+          Firestore.instance.collection('scores').reference().add({ "score": difference , "userid": this.widget.detailsUser.uid,
+            "name":this.widget.detailsUser.displayName, "oponentpoints": oponentPoints, "userpoints": myPoints,
+          });
+
+        }//IF
+
+      });
+
+
+
+    }
+
+
+
 
   void showShortToast(String message) {
     Fluttertoast.showToast(
