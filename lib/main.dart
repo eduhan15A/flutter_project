@@ -126,7 +126,7 @@ class _MyAppState extends State<MyApp> {
                     color: Colors.lightBlueAccent,
                   ),*/
                   FlatButton(
-                      child: Text('¿No tiene cuenta? Regístrate', style: TextStyle(color: Colors.white),),
+                      child: Text('Logout', style: TextStyle(color: Colors.white),),
                     onPressed: () => _signOut(context),
 
                   )

@@ -321,21 +321,21 @@ class _GameState extends State<Game> {
                    new  Expanded( child: Center(child:Text("Your Oponent", style: TextStyle(fontSize: 28.0, color: Colors.red, fontWeight: FontWeight.bold),), )),
                  ],
                ),
-              new SizedBox(height: 10.0,),
+              new SizedBox(height: 2.0,),
                new Row(
                  children: <Widget>[
                    new  Expanded( child: Center(child:Text(myPoints.toString(), style: TextStyle(fontSize: 38.0, color: Colors.black54, fontWeight: FontWeight.bold),), )),
                    new  Expanded( child: Center(child:Text(oponentPoints.toString(), style: TextStyle(fontSize: 38.0, color: Colors.black54,fontWeight: FontWeight.bold),), )),
                  ],
                ),
-               new SizedBox(height: 10.0,),
+               new SizedBox(height: 2.0,),
                new Row(
                  children: <Widget>[
-                   new Expanded( child: Center(child:Image.asset( myChoiceImg, width: 150.0, height: 150.0, fit: BoxFit.cover,), )),
-                   new Expanded( child: Center(child:Image.asset(oponentsChoiceImg, width: 150.0, height: 150.0, fit: BoxFit.cover,), )),
+                   new Expanded( child: Center(child:Image.asset( myChoiceImg, width: 120.0, height: 120.0, fit: BoxFit.cover,), )),
+                   new Expanded( child: Center(child:Image.asset(oponentsChoiceImg, width: 120.0, height: 120.0, fit: BoxFit.cover,), )),
                  ],
                ),
-               new SizedBox(height: 10.0,),
+               new SizedBox(height: 5.0,),
                new Row(
                  children: <Widget>[
                    new Expanded( child: Center(child:Text("Choose your Warrior!", style: TextStyle(fontSize: 28.0, fontWeight: FontWeight.bold),), )),
@@ -344,17 +344,17 @@ class _GameState extends State<Game> {
                new SizedBox(height: 10.0,),
                new Row(
                  children: <Widget>[
-                   new Expanded( child: Center(child: GestureDetector(onTap: selectRock, child:Image.asset('assets/images/rock.png', width: 100.0, height: 100.0, fit: BoxFit.cover,)),)),
-                   new Expanded( child: Center(child: GestureDetector(onTap: selectPaper, child:Image.asset('assets/images/paper.png', width: 100.0, height: 100.0, fit: BoxFit.cover,)),)),
-                   new Expanded( child: Center(child: GestureDetector(onTap: selectScissors, child:Image.asset('assets/images/scissors.png', width: 100.0, height: 100.0, fit: BoxFit.cover,)),)),
+                   new Expanded( child: Center(child: GestureDetector(onTap: selectRock, child:Image.asset('assets/images/rock.png', width: 90.0, height: 90.0, fit: BoxFit.cover,)),)),
+                   new Expanded( child: Center(child: GestureDetector(onTap: selectPaper, child:Image.asset('assets/images/paper.png', width: 90.0, height: 90.0, fit: BoxFit.cover,)),)),
+                   new Expanded( child: Center(child: GestureDetector(onTap: selectScissors, child:Image.asset('assets/images/scissors.png', width: 90.0, height: 90.0, fit: BoxFit.cover,)),)),
 
                  ],
                ),
                new SizedBox(height: 10.0,),
                new Row(
                  children: <Widget>[
-                   new Expanded( child: Center(child: GestureDetector(onTap: selectLizard, child:Image.asset('assets/images/lizard.png', width: 100.0, height: 100.0, fit: BoxFit.cover,)),)),
-                   new Expanded( child: Center(child: GestureDetector(onTap: selectSpock, child:Image.asset('assets/images/spock.png', width: 100.0, height: 100.0, fit: BoxFit.cover,)),)),
+                   new Expanded( child: Center(child: GestureDetector(onTap: selectLizard, child:Image.asset('assets/images/lizard.png', width: 90.0, height: 90.0, fit: BoxFit.cover,)),)),
+                   new Expanded( child: Center(child: GestureDetector(onTap: selectSpock, child:Image.asset('assets/images/spock.png', width: 90.0, height: 90.0, fit: BoxFit.cover,)),)),
 
                  ],
                ),
